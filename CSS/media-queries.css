@@ -1,0 +1,299 @@
+/* MEDIA QUERY */
+@media screen and (max-width: 1064px) {
+    .heading{
+        font-size: 4rem;
+        margin-bottom: 0;
+    }
+    .text{
+        font-size: 2rem;
+        font-weight: 600;
+    }
+    .text--md {
+        font-size: 1.7rem;
+    }
+    .normal-text{
+        font-size: 2rem;
+    }
+    .hero-cta{
+        font-size: 1.6rem;
+        font-weight: 600;
+        width: 16rem;
+        height: 4rem;
+        margin-top: 0;
+    }
+    .section-hero{
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+    }
+    .meal-cards{
+    display: grid;
+    grid-template-columns: 35fr 35fr 30fr;
+    gap: 3.2rem;
+}
+
+/* gallery */
+.testimonials{
+    gap: 3.2rem;
+    grid-template-columns: 45fr 55fr;
+}
+.testimony{
+    font-size: 1.6rem;
+}
+}
+
+@media screen and (max-width: 1000px){
+    .testimonials{
+        gap: 7.2rem;
+        grid-template-columns: 1fr;
+    }
+    .testimony{
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .omnifood-logo:not(.logo){
+        font-size: 2.2rem;
+    }
+    .nav-btn{
+        /* top: -4%; */
+        display: none;
+    }
+    .nav-cta{
+        display: block;
+    }
+    .nav-cta button{
+        margin: 0;
+    }
+    .nav-ctas{
+        display: flex;
+        width: 30rem;
+        position: relative;
+    }
+    .nav-links--2{
+        position: absolute;
+        top: 50%;
+        left: 0;
+        /* transform: translateY(-0.5%); */
+    }
+    .header-form{
+        display: none;
+    }
+    .section-hero{
+        gap: 3.6rem;
+        grid-template-columns: 1.2fr 1fr;
+    }
+    .section-hero--cta{
+        gap: 0.2rem;
+    }
+    .heading{
+        font-size: 3.2rem;
+        margin-bottom: 0;
+    }
+    .how-it-works{
+        gap: 5.6rem;
+    }
+    .number{
+        margin-bottom: 3.2rem;
+        font-size: 5.4rem;
+    }
+    .iphone{
+    width: 30%;
+}
+.img-container::after{
+    width: 30%;
+    padding-bottom: 30%;
+}
+.number{
+    font-size: 4rem;
+    /* font */
+}
+.img-container::before{
+    width: 45%;
+    padding-bottom: 45%;
+}
+.meal-cards{
+    grid-template-columns: repeat(2, 1fr);
+}
+.any-diet{
+    grid-column: 1/-1;
+    justify-self: center;
+}
+.pricing-cards{
+    gap: 1rem;
+}
+.meal-price-card{
+    justify-self: center;
+}
+.tab-contents figure{
+    left: 50%;
+}
+.tab-heading{
+    font-size: 2rem;
+    transform: translateY(-70%);
+}
+.txt{
+    font-size: 1.8rem;
+    }
+    
+    .call-to-action{
+        grid-template-columns: 1fr;
+        grid-template-rows:  1fr 2fr;
+    }
+    .cta-img-box{
+        grid-row: 1;
+    }
+
+    /* footer */
+    footer{
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, auto);
+        row-gap: 5.6rem;
+    }
+    footer > .logo{
+        grid-column: 1/3;
+        grid-row: 2;
+        flex-direction: column;
+    }
+    .contact-us{
+        grid-column: 3;
+        grid-row: 2;
+    }
+    .designer{
+        grid-column: 1;
+        grid-row: 3;
+    }
+    .copy{
+        grid-column: 3;
+        grid-row: 3;
+    }
+}
+
+
+@media screen and (max-width: 700px){
+    
+    .text{
+        font-weight: 100;
+    }
+    .heading{
+        line-height: 1.5;
+    }
+    .container-grid {
+        grid-template-columns: 1fr;
+    }
+    .iphone-repositioning-1{
+        grid-row: 2;
+    }
+    .iphone-repositioning-3{
+        grid-row: 6;
+    }
+    .testimonials-con {
+        grid-template-columns: 1fr;
+        gap: 6rem;
+}
+    .tabbed-components {
+        display: none;
+    }
+
+}
+
+/* @media screen and (max-width: 600px){
+
+} */
+
+@media screen and (max-width: 540px){
+    /* nav{
+        display: none;
+    } */
+    .nav-ctas{
+        display: none;      
+    }
+
+    .show-btn{  /* helper-class: show-btn*/
+        display: block;
+        order: 1;
+    }
+    .show-nav-link-3 { /* helper-class: show-nav-link-3*/
+        width: 70%;
+        height: 100%;
+        background-color: #111c5c;
+        /* transform: scale(1.1); */
+        position: fixed;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        z-index: 200;
+        transition: all 2s;
+    }
+    .show-nav-link-3, .content{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .content{
+        flex-direction: column;
+        gap: 3.2rem;
+        list-style: none;
+    }
+    .rremove-nav-btn{
+        font-size: 3.2rem;
+        color: var(--color-primary--shade);
+        position: absolute;
+        top: 3%;
+        right: 6%;
+        background-color: inherit;
+        width: 3.2rem;
+        height: 3.2rem;
+        border: none;
+    }
+
+    .hidden {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        z-index: 100;
+        transition: all 0.5s;
+}
+    .show-nav-link-3 a:link,
+    .show-nav-link-3 a:visited{
+        font-size: 1.6rem;
+        color: var(--color-primary--shade);
+        text-decoration: none;
+    }
+
+    /* hero section */
+    .section-hero--img{
+        max-width: 80%;
+        justify-self: center;
+    }
+
+    /* general setting */
+    .container-grid{
+        justify-content: center;
+    }
+    .heading{
+        font-size: 2.4rem;
+    }
+    .secondary-heading{
+        font-size: 1.5rem;
+    }
+    .description,.text{
+        font-size: 1.8rem;
+    }
+    .sm-text{
+        font-size: 1.6rem;
+    }
+    .form{
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+    }
+
+
+    .meal-name{
+        font-weight: 600;
+    }
+}
