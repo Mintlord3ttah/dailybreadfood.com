@@ -2,9 +2,8 @@
 const navLinks = document.querySelector(".nav-links")
 const navLinks2 = document.querySelector(".nav-links--2")
 const navbtn = document.querySelector(".nav-btn")
-const search = document.querySelector('.search')
 const navigation = document.querySelector('.navigation')
-const sectionHero = document.querySelector('.section-hero')
+const header =  document.querySelector('.header-tag')
 const navBar = document.querySelector('.nav-bar')
 const mainSection = document.querySelector('.main')
 
@@ -14,6 +13,7 @@ const overlay = document.querySelector('.overlay');
 const removeNavbtn = document.querySelector('.rremove-nav-btn');
 const removalCTA = document.querySelector('.removal-cta')
 const removalCTA2 = document.querySelector('.removal-cta-2')
+const link540 = document.querySelector('.link--540')
 
 const tabBtnCon = document.querySelector('.tab-btns') // tabbed component
 const btnTabs= document.querySelectorAll('.tab-btn')
@@ -24,7 +24,7 @@ const tabContentBG = document.querySelector('.tab-contents')
 const anoyingNav = document.querySelector('.anoying-nav') // remove anoying nav
 const stickyNavbtn = document.querySelector('.rm-sticy-nav')
 const lapNav = document.querySelector('.lap-nav')
-
+const helperNavigator = document.querySelector('.helper-nav')
 
 // handle class update
 class UpdateClasses {
@@ -62,7 +62,7 @@ function inspectClasses(el, classes){
     return anyObj.checkClass()
 }
 
-
+// nav lists
 const handleEvent = (...[arg, _]) => arg[0].style.display = arg[1]
 
 function partial(fn, arg){ // the partial function application
@@ -73,26 +73,23 @@ function partial(fn, arg){ // the partial function application
 
 navbtn.addEventListener("mouseover", partial(handleEvent, [navLinks, "flex"]))
 
-search.addEventListener("mouseover", partial(handleEvent, [navLinks2, "flex"]))
-
 navigation.addEventListener("mouseleave", partial(handleEvent, [navigation, "none"]))
 
 document.body.addEventListener("click", function(e){
     handleEvent([navigation, "none"])
 })
 
-let timeOut;
-// STICKY NAVIGATION
-const navWidth = getComputedStyle(navBar)
-if(parseFloat(navWidth.width) <= 600){initiateClasses(navBar, 'sticky', false)}
 
+
+// STICKY NAVIGATION
+let timeOut;
+let timeOut2;
 function callback(entries){
     const [entry] = entries;
-    const viewportWidth = entry.boundingClientRect.width
-    
     
     if(!entry.isIntersecting){
-        if(parseFloat(navWidth.width) > 600) initiateClasses(navBar, 'sticky')
+        intersecting = true
+        initiateClasses(navBar, 'sticky')
 
         // remove anoying sticky nav
         navBar.addEventListener("mouseover", function(e){
@@ -106,48 +103,109 @@ function callback(entries){
                  timeOut = setTimeout(() => lapNav.style.visibility = 'hidden', 1500)
                 
                 stickyNavbtn.addEventListener('click', function(){
-                    navBar.style.visibility = 'hidden'
+                    initiateClasses(navBar, 'sticky', false)
+
+                    if(!inspectClasses(navBar, 'sticky')){
+                        initiateClasses(helperNavigator, 'display')
+                        helperNavigator.style.left = '5%'
+                        helperNavigator.style.top = '50%'
+                    } 
+                    else { initiateClasses(helperNavigator, 'display', false) }
+                    
+                })
+                function expand(){
+                        helperNavigator.style.width = this
+                }
+                helperNavigator.addEventListener('mouseover', expand.bind('10rem'))
+                helperNavigator.addEventListener('mouseleave', expand.bind('4.8rem'))
+
+                helperNavigator.addEventListener('click', function(e){
+                const getTargetState = inspectClasses(e.target, 'state')
+
+                if(getTargetState){
+                    const toggleOn = () => {
+                    const allTargetState = document.querySelectorAll('.state')
+                    allTargetState.forEach((el) => initiateClasses(el, 'active-state', false))}
+
+                    toggleOn()
+                    initiateClasses(e.target, 'active-state')
+                    const dataState = e.target.dataset.state
+                    dataState ==='on' ?
+                    initiateClasses(navBar, 'sticky') :
+                    initiateClasses(navBar, 'sticky', false);
+
+                    clearTimeout(timeOut2)
+                    timeOut2 = setTimeout(() => {
+                        toggleOn()
+                        initiateClasses(document.querySelector('.off'), 'active-state')
+                        initiateClasses(helperNavigator, 'display', false)
+                    }, 1500)
+                    // if(!entry.isIntersecting) initiateClasses(helperNavigator, 'display', false)
+                }
                 })
             }
         })
-    }
-    else if(viewportWidth <= 600){ // small phone nav
-        openNav.addEventListener('click', function(){
-            initiateClasses(showNav3, 'show-nav-link-3')
-            initiateClasses(overlay, 'hidden')
 
-            // onclicking a link remove nav
-            document.querySelector('.nav--540').addEventListener('click', function(e){
-                const linktag = inspectClasses(e.target, 'link--540')
-
-                if(linktag) {
-                    initiateClasses(showNav3, 'show-nav-link-3', false)
-                    initiateClasses(overlay, 'hidden', false)
-                } 
-            })
-        })
-
-        // onclicking the disable btn remove nav
-        removeNavbtn.addEventListener('click', function(){
-            initiateClasses(showNav3, 'show-nav-link-3', false)
-            initiateClasses(overlay, 'hidden', false)
-        })
     }
     else{
         initiateClasses(navBar, 'sticky', false)
         navBar.style.visibility = 'visible'
+        intersecting = false;
     }
 }
-
+const navBarHeight = navBar.clientHeight
 const options = {
     root: null,
     threshold: 0,
+    rootMargin: `${-navBarHeight}px`,
 }
 const observer = new IntersectionObserver(callback, options);
-observer.observe(sectionHero)
+observer.observe(header)
+
+helperNavigator.addEventListener('click', function(){
+    
+})
+
+// SMOOTH SCROLLING
+function smoothScrolling(e){
+    e.preventDefault()
+    const targetEl = e.target.classList.contains(this);
+
+    if(!targetEl) return
+    const idEl = e.target.getAttribute('href');
+    const filterId = idEl.replace(/#/, '')
+    const elementSetId = document.getElementById(`${filterId}`)
+    elementSetId.scrollIntoView({ behavior: 'smooth' })
+}
+
+navLinks.addEventListener('click', smoothScrolling.bind('nav-link'))
+showNav3.addEventListener('click', smoothScrolling.bind('link--540'))
 
 navBar.addEventListener('mouseleave', function(){ // remove btn
     document.querySelector('.anoying-nav').style.display = "none";   
+})
+
+// small phone
+openNav.addEventListener('click', function(){
+    initiateClasses(showNav3, 'show-nav-link-3')
+    initiateClasses(overlay, 'hidden')
+
+    // onclicking a link remove nav
+    document.querySelector('.nav--2').addEventListener('click', function(e){
+        const linktag = inspectClasses(e.target, 'link--540');
+        const remByOverlay = inspectClasses(e.target, 'overlay')
+
+        if(linktag || remByOverlay) {
+            initiateClasses(showNav3, 'show-nav-link-3', false)
+            initiateClasses(overlay, 'hidden', false)
+        } 
+    })
+})
+
+// onclicking the disable btn remove nav
+removeNavbtn.addEventListener('click', function(){
+    initiateClasses(showNav3, 'show-nav-link-3', false)
+    initiateClasses(overlay, 'hidden', false)
 })
 
 

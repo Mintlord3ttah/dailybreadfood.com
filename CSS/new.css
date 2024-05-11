@@ -1,0 +1,27 @@
+header{
+    display: flex;
+    /* grid-template-columns: 1fr; */
+    justify-content: center;
+    align-items: center;
+}
+.new-hero{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 4.8rem;
+}
+.new-hero--customers{
+    gap: 0;
+    flex-direction: column;
+    margin-top: 3.2rem;
+}
+/* .new-customer-img{
+    width: 32px;
+    height: 32px;
+} */
+.new-cta{
+    margin-top: 5.6rem;
+}
+.new-text{
+    font-size: 1.8rem;
+}

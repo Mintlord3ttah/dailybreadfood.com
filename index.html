@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="The smart 365-days-per-year food subscription that will make you eat healthy again. Tailored to your personal tastes and nutritional needs. We have delivered 250,000+ meals last year!
     ">
-    <title>dailybread-foods.ng</title>
+    <title>dailybread-foods &mdash; Cook less or no more</title>
+    <link rel="icon" href="./img/logos/dbfav-icon.png">
+    <link rel="apple-touch-icon" href="./img/logos/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./CSS/components.css">
     <link rel="stylesheet" href="./CSS/media-queries.css">
+    <link rel="stylesheet" href="./CSS/new.css">
 </head>
 <body>
     <nav class="nav-bar">
@@ -25,36 +29,35 @@
                 <a href="#how-it-works" class="nav-link">How It Works</a>
                 <a href="#list-of-diets" class="nav-link">List Of Diets</a>
                 <a href="#testimonial" class="nav-link">Testimonial</a>
-                <a href="#pricing" class="highlighted-link nav-link">Pricing Plans</a>
+                <a href="#pricing" class="nav-link">Pricing Plans</a>
                 <a href="#faq" class="nav-link">FAQ</a>
                 <a href="#contact-us" class="nav-link">Contact Us</a>
             </div>
 
-            <h3 class="omnifood-logo"><span class="logo">db</span>foods</h3>
+            <img src="./img/logos/daily-bread-logo.png" alt="" class="daily-bread-logo">
         </div>
-        <div class="header-form round-label">
-            <div class="round-label-white">
-                <input type="email" name="email" id="email" placeholder="e.g@gmail.com">
-                <input type="submit" value="Login" class="nav-input">
-                <input type="submit" value="Signup" class="nav-input">
-            </div>
-        </div>
+        <form class="new-form">
+            <input type="email" name="email" id="email" value="e.g@gmail.com">
+            <input type="submit" value="Login" class="nav-input">
+            <input type="submit" value="Signup" class="nav-input">
+        </form>
 
-        <div class="nav-ctas round-label">
-            <div class="cta round-label-white">
-                <button name="hero-call-toac=-action-button" class="hero-cta eat-well nav-cta">Start eating well</button>
-            </div>
-            <button class="search" name="navigation-button">≡</button>
-            <div class="navigation nav-links--2">
-                <a href="#how-it-works" class="nav-link">How It Works</a>
-                <a href="#list-of-diets" class="nav-link">List Of Diets</a>
-                <a href="#testimonial" class="nav-link">Testimonial</a>
-                <a href="#pricing" class="highlighted-link nav-link">Pricing Plans</a>
-                <a href="#faq" class="nav-link">FAQ</a>
-                <a href="#contact-us" class="nav-link">Contact Us</a>
-            </div>
-        </div>      
-
+         <!-- meadia query >= 800 -->
+         <div class="nav--2">
+             <button class="search mdq--540 show-btn" name="show-btn" >≡</button>
+             <div class="nav-links--3">
+                 <button class="rremove-nav-btn" name="remove-btn">&times;</button>
+                 <ul class="content">
+                     <li><a class='link--540' href="#how-it-works">How It Works</a></li>
+                     <li><a class='link--540' href="#list-of-diets">List Of Diets</a></li>
+                     <li><a class='link--540' href="#testimonial">Testimonial</a></li>
+                     <li><a class='link--540' href="#pricing" class="highlighted-link nav-link">Pricing Plans</a></li>
+                     <li><a class='link--540' href="#faq">FAQ</a></li>
+                     <li><a class='link--540' href="#contact-us">Contact Us</a></li>
+                 </ul>
+             </div>
+             <div class="overlay"></div>
+         </div>
         <!-- sticy nav could become a problem -->
         <div class="lap-nav">
             <div class="anoying-nav">
@@ -62,45 +65,28 @@
                 <span class="rm-txt">remove sticky navigation</span>
             </div>
         </div>
+
+        <!-- <span class="msg">turn on sticky navigation</span> -->
+    <div class="helper-nav">
+        <div class="state on" data-state="on">on</div>
+        <div class="state off active-state" data-state="off">off</div>
+    </div>
     </nav>
 
-    <nav class="nav--540">
-         <!-- meadia query >= 540 -->
-         <button class="search mdq--540 show-btn" name="show-btn">≡</button>
-         <div class="nav-links--3">
-             <button class="rremove-nav-btn" name="remove-btn">&times;</button>
-             <ul class="content">
-                 <li><a class='link--540' href="#how-it-works">How It Works</a></li>
-                 <li><a class='link--540' href="#list-of-diets">List Of Diets</a></li>
-                 <li><a class='link--540' href="#testimonial">Testimonial</a></li>
-                 <li><a class='link--540' href="#pricing" class="highlighted-link nav-link">Pricing Plans</a></li>
-                 <li><a class='link--540' href="#faq">FAQ</a></li>
-                 <li><a class='link--540' href="#contact-us">Contact Us</a></li>
-             </ul>
-         </div>
-         <div class="overlay"></div>
-    </nav>
-    <header>
+    <header class="header-tag">       
+        <section class="new-hero">
+            <h1 class="heading">Cook less or no more!</h1>
 
-        <section class="section-hero container container-grid">
-            <div class="section-hero--text">
-                <h1 class="heading">Welcome to Daily Bread foods, an <strong>omni</strong> food provider that saves you from kitchen headache.</h1>
+                <p class="text new-text">Have your meals conveniently, with no worries.</p>
+                <p class="text new-text">great meals from our professional cooks.</p>
 
-                <p class="text">Now is the time for you to face your daily activities whole heartedly without having the problems of manually scheduling meals for yourself and your family.</p>
-
-                <div class="removal-cta section-hero--cta">
-                    <div class="removal-cta-2 all-cta">
-                        <button class="hero-cta eat-well" name="eat-well">Start eating well</button>
-                        <!-- <button class="hero-cta learn-more">Learn more &rarr;</button> -->
-                        <button class="hero-cta learn-more"><a href="#how-it-works" class="link">Learn more &rarr;</a></button>
-                    </div>
-                    <span class="logo">db</span>
+                <div class="new-cta">
+                    <button class="hero-cta eat-well" name="eat-well">Start eating well</button>
+                    <button class="hero-cta learn-more">Learn more &rarr;</button>
                 </div>
-
-
-                <div class="section-hero--customers">
-                    <!-- <img src="" alt=""> -->
-                    <div class="customer-photos">
+                <div class="section-hero--customers new-hero--customers">
+                    <img src="" alt="">
+                    <div class="customer-photos new-customer-img">
                         <img src="./img/customers/customer--1.jpg" alt="customer--1">
                         <img src="./img/customers/customer--2.jpg" alt="customer--2">
                         <img src="./img/customers/customer--3.jpg" alt="customer--3">
@@ -112,8 +98,7 @@
                         <strong >250,000+</strong> meals delivered last year!
                     </aside>
                 </div>
-            </div>
-                <img src="./img/hero.png"  class="section-hero--img" alt="Chinese Food Archives">
+
         </section>
     </header>
 
@@ -139,7 +124,7 @@
                         <span class="number">01</span>
                         <p class="step-heading">Tell us what you like (and what not)</p>
                         <p class="description normal-text">
-                            Never again waste time thinking about what to eat! Omnifood AI will create a 100% personalized weekly meal plan just for you. It makes sure you get all the nutrients and vitamins you need, no matter what diet you follow!
+                            Never again waste time thinking about what to eat! Daily-breadfoods AI will create a 100% personalized weekly meal plan just for you. It makes sure you get all the nutrients and vitamins you need, no matter what diet you follow!
                         </p>
                     </figure>
                     </aside>
@@ -155,7 +140,7 @@
                         <span class="number">02</span>
                         <p class="step-heading">Approve your weekly meal plan</p>
                         <p class="description normal-text">
-                             Once per week, approve the meal plan generated for you by Omnifood AI. You can change ingredients, swap entire meals, or even add your own recipes.
+                             Once per week, approve the meal plan generated for you by Daily-breadfoods AI. You can change ingredients, swap entire meals, or even add your own recipes.
                         </p>
                     </figure>
                     </aside>
@@ -257,13 +242,13 @@
                     <div class="cst--3">
                         <img src="./img/customers/steve.jpg" alt="our client steve photo">
     
-                        <p class="testimony description">Omnifood is a life saver! I just started a company, so there's no time for cooking. I couldn't live without my daily meals now!</p>
+                        <p class="testimony description">Daily-breadfoods is a life saver! I just started a company, so there's no time for cooking. I couldn't live without my daily meals now!</p>
                         <span class="cst-name">——  Steve Miller</span>
                     </div>
                     <div class="cst--4">
                         <img src="./img/customers/hannah.jpg" alt="our client hannah photo">
     
-                        <p class="testimony description"> I got Omnifood for the whole family, and it frees up so much time! Plus, everything is organic and vegan and without plastic. </p>
+                        <p class="testimony description"> I got dailybread-foods for the whole family, and it frees up so much time! Plus, everything is organic and vegan and without plastic. </p>
                         <span class="cst-name">—— Hannah Smith</span>
                     </div>
                 </div>
@@ -360,22 +345,63 @@
                             <img src="./img/customers/customer--4.jpg" class="image-slide image-slide--3" alt="">
                         </div>
                         <figure class="tab-con active-content tab-con--0">
+                            <ion-icon class="icon-gen" name="infinite-outline"></ion-icon>
                             <p class="tab-heading">Available on daily basis</p>
                             <sapn class="txt">Our subscriptions cover 365 days per year, even including major holidays.</sapn>
                         </figure>
                         <figure class="tab-con tab-con--1">
+                            <ion-icon class="icon-gen" name="nutrition-outline"></ion-icon>
                             <p class="tab-heading">Carefully prepared meals</p>
                             <sapn class="txt">Our cooks only use local, fresh, and organic products to prepare your meals.</sapn>
                         </figure>
 
                         <figure class="tab-con tab-con--2">
+                            <ion-icon class="icon-gen" name="leaf-outline"></ion-icon>
                             <p class="tab-heading">Nicely packaged meals</p>
                             <sapn class="txt">All our partners only use reusable containers to package all your meals.</sapn>
                         </figure>
                         <figure class="tab-con tab-con--3">
+                            <ion-icon class="icon-gen" name="pause-outline"></ion-icon>
                             <p class="tab-heading">Flexible plans!</p>
                             <sapn class="txt">Going on vacation? Just pause your subscription, and we refund unused days.</sapn>
                         </figure>
+                    </div>
+                </div>
+
+                <!-- for small phone: vw540 -->
+                <div class="feat-sm" id="feat-sm">
+                    
+                    <div class="feature-sm">
+                        <ion-icon class="icon-gen" name="infinite-outline"></ion-icon>
+                        <p class="feature-title-sm text--md">Never cook again!</p>
+                        <p class="text">
+                        Our subscriptions cover 365 days per year, even including major
+                        holidays.
+                        </p>
+                    </div>
+                    <div class="feature-sm">
+                        <ion-icon class="icon-gen" name="nutrition-outline"></ion-icon>
+                        <p class="feature-title-sm text--md">Local and organic</p>
+                        <p class="text">
+                        Our cooks only use local, fresh, and organic products to prepare
+                        your meals.
+                        </p>
+                    </div>
+                    <div class="feature-sm">
+                        <ion-icon class="icon-gen" name="leaf-outline"></ion-icon>
+                        <p class="feature-title-sm text--md">No waste</p>
+                        <p class="text">
+                        All our partners only use reusable containers to package all your
+                        meals.
+                        </p>
+                    </div>
+                    <div class="feature-sm">
+                        <ion-icon class="icon-gen" name="pause-outline"></ion-icon>
+                        <p class="feature-title-sm text--md">Pause anytime</p>
+                        <p class="text">
+                        Going on vacation? Just pause your subscription, and we refund
+                        unused days.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -417,9 +443,9 @@
         </section>
     </main>
 
-    <footer>
+    <footer id="contact-us">
         <div class="logo">
-            <h3 class="omnifood-logo"><span class="logo">db</span>foods</h3>
+            <img src="./img/logos/daily-bread-logo.png" alt="" class="daily-bread-logo">
             <ul class="social-links ul">
                 <li><a href="#"><ion-icon name="logo-facebook" class="sm-icon"></ion-icon></a ></li>
                 <li><a href="#"><ion-icon name="logo-instagram" class="sm-icon"></ion-icon></a ></li>
@@ -440,7 +466,7 @@
         </ul>
         <ul class="company ul">
             <li><a href="#">About Daily-Bread foods</a></li>
-            <li><a href="#">For Businessn</a></li>
+            <li><a href="#">For Business</a></li>
             <li><a href="#">Cooking partners</a></li>
             <li><a href="#">Careers</a></li>
         </ul>
